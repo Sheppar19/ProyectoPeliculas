@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtNombre"
+        android:layout_width="670px"
+        android:layout_height="wrap_content"
+        android:text="Nombre prelicula" />
+
+    <LinearLayout
+        android:id="@+id/linerLayoutP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50px">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/descarga" />
+
+        <TextView
+            android:id="@+id/txtSinopsis"
+            android:layout_width="670px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10px"
+            android:text="Sinopsis" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtAutor"
+        android:layout_width="670px"
+        android:layout_height="wrap_content"
+        android:text="Autor"
+        android:layout_marginTop="420px"
+        android:layout_marginLeft="10px"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="450px"
+        android:background="@color/colorPrimary"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400px"
+        android:layout_marginLeft="400px">
+        <CheckBox
+            android:id="@+id/estrella1"
+            style="?android:attr/starStyle"
+            android:tag="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <CheckBox
+            android:id="@+id/estrella2"
+            style="?android:attr/starStyle"
+            android:tag="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <CheckBox
+            android:id="@+id/estrella3"
+            style="?android:attr/starStyle"
+            android:tag="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <CheckBox
+            android:id="@+id/estrella4"
+            style="?android:attr/starStyle"
+            android:tag="4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <CheckBox
+            android:id="@+id/estrella5"
+            style="?android:attr/starStyle"
+            android:tag="5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+</RelativeLayout>
