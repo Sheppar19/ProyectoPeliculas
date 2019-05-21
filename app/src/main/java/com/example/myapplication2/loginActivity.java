@@ -47,6 +47,7 @@ public class loginActivity extends AppCompatActivity {
                     bundle.putSerializable("usuario",usuario);
                     enviar.putExtras(bundle);
                     startActivity(enviar);
+
                 }else{
                     contraseña.setText("");
                     email.setText("");

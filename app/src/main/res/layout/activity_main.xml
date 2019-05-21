@@ -12,6 +12,24 @@
         android:id="@+id/contenedor"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/txtbienvenidoD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bienvenid@"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="100px"
+            android:layout_marginTop="200px"/>
+        <TextView
+            android:id="@+id/txtbienvenido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Que Disfrutes de Nuestros Servicios"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="100px"
+            android:layout_marginTop="300px"/>
 
     </FrameLayout>
 

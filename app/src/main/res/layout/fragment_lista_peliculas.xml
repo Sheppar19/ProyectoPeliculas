@@ -6,9 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".listaPeliculasFragment">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="50px"
+        android:text="Peliculas Disponibles"
+        android:gravity="center"
+        android:textAlignment="center"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/listaPelicula"
         android:layout_width="match_parent"
-        android:layout_height="712dp" />
+        android:layout_height="670dp"
+        android:layout_marginTop="80px" />
 </FrameLayout>

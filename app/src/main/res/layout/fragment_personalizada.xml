@@ -4,9 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PersonalizadaFragment">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="50px"
+    android:text="Lista Personal de Peliculas"
+    android:gravity="center"
+    android:textAlignment="center"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/listaPeliculasPersonalizadas"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="685dp"
+        android:layout_marginTop="80px"/>
 </FrameLayout>
