@@ -2,7 +2,7 @@ package DTO;
 
 import java.io.Serializable;
 
-public class CalificacionGeneral implements Serializable {
+public class Calificacion implements Serializable {
     private int puntacionAutor;
     private int puntuacionSinopsis;
     private int puntacionPelicula;
@@ -10,7 +10,7 @@ public class CalificacionGeneral implements Serializable {
     private String idUsuario;
     private String idPelicula;
 
-    public CalificacionGeneral(int puntacionAutor, int puntuacionSinopsis, int puntacionPelicula, String id, String idUsuario, String idPelicula) {
+    public Calificacion(int puntacionAutor, int puntuacionSinopsis, int puntacionPelicula, String id, String idUsuario, String idPelicula) {
         this.puntacionAutor = puntacionAutor;
         this.puntuacionSinopsis = puntuacionSinopsis;
         this.puntacionPelicula = puntacionPelicula;
@@ -19,13 +19,13 @@ public class CalificacionGeneral implements Serializable {
         this.idPelicula = idPelicula;
     }
 
-    public CalificacionGeneral(int puntacionAutor, int puntuacionSinopsis, int puntacionPelicula) {
+    public Calificacion(int puntacionAutor, int puntuacionSinopsis, int puntacionPelicula) {
         this.puntacionAutor = puntacionAutor;
         this.puntuacionSinopsis = puntuacionSinopsis;
         this.puntacionPelicula = puntacionPelicula;
     }
 
-    public CalificacionGeneral() {
+    public Calificacion() {
     }
 
     public String getId() {

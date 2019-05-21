@@ -28,6 +28,7 @@ public class Usuario implements Serializable {
         this.idPeliculas.add(id);
 
     }
+
     public ArrayList<String> getIdPeliculas() {
         return idPeliculas;
     }

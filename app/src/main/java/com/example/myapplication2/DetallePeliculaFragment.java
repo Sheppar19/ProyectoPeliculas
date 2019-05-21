@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import DAO.DAO;
-import DTO.CalificacionGeneral;
+import DTO.Calificacion;
 import DTO.Pelicula;
 import DTO.Usuario;
 
@@ -31,13 +31,13 @@ public class DetallePeliculaFragment extends Fragment {
     public CheckBox estrella1,estrella2,estrella3,estrella4,estrella5,aestrella1,aestrella2,aestrella3,aestrella4,aestrella5,
             sestrella1,sestrella2,sestrella3,sestrella4,sestrella5,pestrella1,pestrella2,pestrella3,pestrella4,pestrella5;
     public DAO dao;
-    public CalificacionGeneral calificacionGeneral;
+    public Calificacion calificacion;
     public Usuario usuario;
-    public  ArrayList<CalificacionGeneral> calificacionGeneralArrayList;
+    static   ArrayList<Calificacion> calificacionArrayList = new ArrayList<>();
+    public ArrayList<Usuario> usuarios;
     public DetallePeliculaFragment() {
         // Required empty public constructor}
-        this.dao = new DAO();
-        calificacionGeneralArrayList = new ArrayList<>();
+
     }
 
 
@@ -45,18 +45,47 @@ public class DetallePeliculaFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        dao = new DAO();
         if(getArguments()!=null){
             pelicula = (Pelicula) getArguments().getSerializable("Pelicula");
             usuario = (Usuario) getArguments().getSerializable("usuario");
         }
 
 
-        calificacionGeneral = new CalificacionGeneral();
-        calificacionGeneral.setIdPelicula(pelicula.getId());
-        calificacionGeneral.setIdUsuario(usuario.getId());
-      //  dao.setPuntaje(calificacionGeneral);
+        calificacion = new Calificacion();
+        calificacion.setIdPelicula(pelicula.getId());
+        calificacion.setIdUsuario(usuario.getId());
+        String hola;
+       dao.setPuntaje(calificacion);
+        dao.databaseReference.child("Calificacion").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (final DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                    dao.databaseReference.child("Calificacion").child(dataSnapshot1.getKey()).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            Calificacion calificacion = dataSnapshot1.getValue(Calificacion.class);
+                            calificacionArrayList.add(calificacion);
+                            Log.e("calificacion",""+calificacionArrayList.size());
 
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+                }
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+
+        });
+
+        Log.e("calificacion2",""+calificacionArrayList.size());
     }
 
 
@@ -251,8 +280,8 @@ public class DetallePeliculaFragment extends Fragment {
     }
     public void calificacionAutor(int puntos){
         if(puntos >= 1 && puntos <=5){
-            calificacionGeneral.setPuntacionAutor(puntos);
-            dao.updatePuntaje(calificacionGeneral,dao);
+            calificacion.setPuntacionAutor(puntos);
+            dao.updatePuntaje(calificacion,dao);
         }
         switch(puntos){
             case 1:
@@ -290,8 +319,8 @@ public class DetallePeliculaFragment extends Fragment {
     }
     public void calificacionSinopsis(int puntos){
         if(puntos >= 1 && puntos <=5){
-            calificacionGeneral.setPuntuacionSinopsis(puntos);
-            dao.updatePuntaje(calificacionGeneral,dao);
+            calificacion.setPuntuacionSinopsis(puntos);
+            dao.updatePuntaje(calificacion,dao);
         }
         switch(puntos){
             case 1:
@@ -329,8 +358,8 @@ public class DetallePeliculaFragment extends Fragment {
     }
     public void calificacionPelicula(int puntos){
         if(puntos >= 1 && puntos <=5){
-            calificacionGeneral.setPuntacionPelicula(puntos);
-            dao.updatePuntaje(calificacionGeneral,dao);
+            calificacion.setPuntacionPelicula(puntos);
+            dao.updatePuntaje(calificacion,dao);
         }
         switch(puntos){
             case 1:

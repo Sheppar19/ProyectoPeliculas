@@ -17,8 +17,8 @@ import android.widget.Toast;
 import java.util.Calendar;
 
 import DAO.DAO;
+import DTO.Calificacion;
 import DTO.Pelicula;
-import DTO.CalificacionGeneral;
 
 
 public class pushPeliculaFragment extends Fragment {
@@ -30,7 +30,7 @@ public class pushPeliculaFragment extends Fragment {
     public int mes,dia,año;
     public Calendar calendar;
     public DatePickerDialog.OnDateSetListener dateSetListener;
-    public CalificacionGeneral calificacionGeneral;
+    public Calificacion calificacion;
     public pushPeliculaFragment() {
         // Required empty public constructor
     }
@@ -84,11 +84,11 @@ public class pushPeliculaFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 try {
-                    calificacionGeneral = new CalificacionGeneral(Integer.parseInt(puntuacion.getText().toString()),Integer.parseInt(puntuacion.getText().toString()),
+                    calificacion = new Calificacion(Integer.parseInt(puntuacion.getText().toString()),Integer.parseInt(puntuacion.getText().toString()),
                             Integer.parseInt(puntuacion.getText().toString()));
                     pelicula = new Pelicula(nombre.getText().toString(),autor.getText().toString(),
                             sinopsis.getText().toString(),
-                            fecha.getText().toString(), calificacionGeneral);
+                            fecha.getText().toString(), calificacion);
                     dao.setPelicula(pelicula);
                 }catch (Exception e){
                     Toast.makeText(getContext(),"Fecha invalida",Toast.LENGTH_SHORT).show();

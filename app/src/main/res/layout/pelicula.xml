@@ -33,7 +33,7 @@
 
         <TextView
             android:id="@+id/txtSinopsis"
-            android:layout_width="670px"
+            android:layout_width="505px"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10px"
             android:text="Sinopsis" />

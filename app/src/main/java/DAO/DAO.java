@@ -18,8 +18,8 @@ import java.util.Date;
 
 import java.util.TimeZone;
 
+import DTO.Calificacion;
 import DTO.Pelicula;
-import DTO.CalificacionGeneral;
 import DTO.Usuario;
 
 public class DAO {
@@ -40,7 +40,7 @@ public class DAO {
         String key = databaseReference.child("Usuarios").child("posts").push().getKey();
         usuario.setId(key);
         this.databaseReference.child("Usuarios").child(usuario.getId()).setValue(usuario);
-    }
+       }
 
     public DatabaseReference getDatabaseReference() {
         return databaseReference;
@@ -191,13 +191,13 @@ public class DAO {
         return peliculaArrayList;
     }
 
-    public void setPuntaje(CalificacionGeneral puntaje) {
+    public void setPuntaje(Calificacion puntaje) {
         String key = databaseReference.child("Puntaje").child("posts").push().getKey();
         puntaje.setId(key);
         this.databaseReference.child("Puntaje").child(puntaje.getId()).setValue(puntaje);
     }
-    public void updatePuntaje(CalificacionGeneral calificacionGeneral, DAO dao) {
-        dao.getDatabaseReference().child("Puntaje").child(calificacionGeneral.getId()).setValue(calificacionGeneral);
+    public void updatePuntaje(Calificacion calificacion, DAO dao) {
+        dao.getDatabaseReference().child("Puntaje").child(calificacion.getId()).setValue(calificacion);
     }
 
 

@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 import DAO.Adaptador;
 import DAO.DAO;
+import DTO.Calificacion;
 import DTO.Pelicula;
-import DTO.CalificacionGeneral;
 import DTO.Usuario;
 
 
@@ -21,7 +21,7 @@ public class listaPeliculasFragment extends Fragment {
     private RecyclerView recyclerView;
     private DAO dao;
     private ArrayList<Pelicula> peliculaArrayList;
-    private ArrayList<CalificacionGeneral> calificacionGeneralArrayList;
+    private ArrayList<Calificacion> calificacionArrayList;
     private Adaptador adaptador;
     private Usuario usuario;
     public listaPeliculasFragment() {
