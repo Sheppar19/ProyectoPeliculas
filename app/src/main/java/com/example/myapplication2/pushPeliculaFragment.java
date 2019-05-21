@@ -18,7 +18,7 @@ import java.util.Calendar;
 
 import DAO.DAO;
 import DTO.Pelicula;
-import DTO.PuntajeGeneral;
+import DTO.CalificacionGeneral;
 
 
 public class pushPeliculaFragment extends Fragment {
@@ -30,7 +30,7 @@ public class pushPeliculaFragment extends Fragment {
     public int mes,dia,año;
     public Calendar calendar;
     public DatePickerDialog.OnDateSetListener dateSetListener;
-    public PuntajeGeneral puntajeGeneral;
+    public CalificacionGeneral calificacionGeneral;
     public pushPeliculaFragment() {
         // Required empty public constructor
     }
@@ -84,11 +84,11 @@ public class pushPeliculaFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 try {
-                    puntajeGeneral = new PuntajeGeneral(Integer.parseInt(puntuacion.getText().toString()),Integer.parseInt(puntuacion.getText().toString()),
+                    calificacionGeneral = new CalificacionGeneral(Integer.parseInt(puntuacion.getText().toString()),Integer.parseInt(puntuacion.getText().toString()),
                             Integer.parseInt(puntuacion.getText().toString()));
                     pelicula = new Pelicula(nombre.getText().toString(),autor.getText().toString(),
                             sinopsis.getText().toString(),
-                            fecha.getText().toString(), puntajeGeneral);
+                            fecha.getText().toString(), calificacionGeneral);
                     dao.setPelicula(pelicula);
                 }catch (Exception e){
                     Toast.makeText(getContext(),"Fecha invalida",Toast.LENGTH_SHORT).show();

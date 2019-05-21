@@ -1,18 +1,27 @@
 package com.example.myapplication2;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
+import DAO.DAO;
+import DTO.CalificacionGeneral;
 import DTO.Pelicula;
+import DTO.Usuario;
 
 
 public class DetallePeliculaFragment extends Fragment {
@@ -21,8 +30,14 @@ public class DetallePeliculaFragment extends Fragment {
     public TextView txtTitulo,txtSinopsis,txtAutor;
     public CheckBox estrella1,estrella2,estrella3,estrella4,estrella5,aestrella1,aestrella2,aestrella3,aestrella4,aestrella5,
             sestrella1,sestrella2,sestrella3,sestrella4,sestrella5,pestrella1,pestrella2,pestrella3,pestrella4,pestrella5;
+    public DAO dao;
+    public CalificacionGeneral calificacionGeneral;
+    public Usuario usuario;
+    public  ArrayList<CalificacionGeneral> calificacionGeneralArrayList;
     public DetallePeliculaFragment() {
-        // Required empty public constructor
+        // Required empty public constructor}
+        this.dao = new DAO();
+        calificacionGeneralArrayList = new ArrayList<>();
     }
 
 
@@ -30,15 +45,26 @@ public class DetallePeliculaFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if(getArguments()!=null){
             pelicula = (Pelicula) getArguments().getSerializable("Pelicula");
+            usuario = (Usuario) getArguments().getSerializable("usuario");
         }
 
+
+        calificacionGeneral = new CalificacionGeneral();
+        calificacionGeneral.setIdPelicula(pelicula.getId());
+        calificacionGeneral.setIdUsuario(usuario.getId());
+      //  dao.setPuntaje(calificacionGeneral);
+
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
        View view = inflater.inflate(R.layout.fragment_detalle_pelicula, container, false);
         txtTitulo = view.findViewById(R.id.DetalleTituloTxtView);
         txtAutor = view.findViewById(R.id.DetalleAutorTxtView);
@@ -69,30 +95,36 @@ public class DetallePeliculaFragment extends Fragment {
         aestrella1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                descalificarAutor();
                 calificacionAutor(1);
+
             }
         });
         aestrella2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                descalificarAutor();
                 calificacionAutor(2);
             }
         });
         aestrella3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                descalificarAutor();
                 calificacionAutor(3);
             }
         });
         aestrella4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                descalificarAutor();
                 calificacionAutor(4);
             }
         });
         aestrella5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                descalificarAutor();
                 calificacionAutor(5);
             }
         });
@@ -100,30 +132,35 @@ public class DetallePeliculaFragment extends Fragment {
         sestrella1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                descalificarSinopsis();
                 calificacionSinopsis(1);
             }
         });
         sestrella2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                descalificarSinopsis();
                 calificacionSinopsis(2);
             }
         });
         sestrella3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                descalificarSinopsis();
                 calificacionSinopsis(3);
             }
         });
         sestrella4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                descalificarSinopsis();
                 calificacionSinopsis(4);
             }
         });
         sestrella5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                descalificarSinopsis();
                 calificacionSinopsis(5);
             }
         });
@@ -132,30 +169,35 @@ public class DetallePeliculaFragment extends Fragment {
         pestrella1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                descalificarPelicula();
                 calificacionPelicula(1);
             }
         });
         pestrella2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                descalificarPelicula();
                 calificacionPelicula(2);
             }
         });
         pestrella3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                descalificarPelicula();
                 calificacionPelicula(3);
             }
         });
         pestrella4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                descalificarPelicula();
                 calificacionPelicula(4);
             }
         });
         pestrella5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                descalificarPelicula();
                 calificacionPelicula(5);
             }
         });
@@ -208,6 +250,10 @@ public class DetallePeliculaFragment extends Fragment {
         }
     }
     public void calificacionAutor(int puntos){
+        if(puntos >= 1 && puntos <=5){
+            calificacionGeneral.setPuntacionAutor(puntos);
+            dao.updatePuntaje(calificacionGeneral,dao);
+        }
         switch(puntos){
             case 1:
                 aestrella1.setChecked(true);
@@ -243,6 +289,10 @@ public class DetallePeliculaFragment extends Fragment {
         }
     }
     public void calificacionSinopsis(int puntos){
+        if(puntos >= 1 && puntos <=5){
+            calificacionGeneral.setPuntuacionSinopsis(puntos);
+            dao.updatePuntaje(calificacionGeneral,dao);
+        }
         switch(puntos){
             case 1:
                 sestrella1.setChecked(true);
@@ -278,6 +328,10 @@ public class DetallePeliculaFragment extends Fragment {
         }
     }
     public void calificacionPelicula(int puntos){
+        if(puntos >= 1 && puntos <=5){
+            calificacionGeneral.setPuntacionPelicula(puntos);
+            dao.updatePuntaje(calificacionGeneral,dao);
+        }
         switch(puntos){
             case 1:
                 pestrella1.setChecked(true);
@@ -312,6 +366,28 @@ public class DetallePeliculaFragment extends Fragment {
                 pestrella5.setChecked(false);
         }
     }
+    public void descalificarAutor(){
+                aestrella1.setChecked(false);
+                aestrella2.setChecked(false);
+                aestrella3.setChecked(false);
+                aestrella4.setChecked(false);
+                aestrella5.setChecked(false);
+        }
+    public void descalificarSinopsis(){
+        sestrella1.setChecked(false);
+        sestrella2.setChecked(false);
+        sestrella3.setChecked(false);
+        sestrella4.setChecked(false);
+        sestrella5.setChecked(false);
+    }
+    public void descalificarPelicula(){
+        pestrella1.setChecked(false);
+        pestrella2.setChecked(false);
+        pestrella3.setChecked(false);
+        pestrella4.setChecked(false);
+        pestrella5.setChecked(false);
+    }
+
 
 
 }

@@ -1,32 +1,19 @@
 package com.example.myapplication2;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
-
-import java.io.Console;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 import DAO.Adaptador;
 import DAO.DAO;
 import DTO.Pelicula;
+import DTO.CalificacionGeneral;
 import DTO.Usuario;
 
 
@@ -34,6 +21,7 @@ public class listaPeliculasFragment extends Fragment {
     private RecyclerView recyclerView;
     private DAO dao;
     private ArrayList<Pelicula> peliculaArrayList;
+    private ArrayList<CalificacionGeneral> calificacionGeneralArrayList;
     private Adaptador adaptador;
     private Usuario usuario;
     public listaPeliculasFragment() {
@@ -53,13 +41,7 @@ public class listaPeliculasFragment extends Fragment {
         adaptador.setListaPeliculas(peliculaArrayList);
         adaptador.setUsuario(usuario,dao,getActivity());
 
-        DAO dao2 = new DAO();
-        Adaptador adaptador2 = new Adaptador();
-        ArrayList<Pelicula> peliculasPersonalizada = new ArrayList<>();
-        dao.getPeliculasPersonalizadas(dao2,peliculasPersonalizada,adaptador2,usuario);
-        adaptador2.setListaPeliculas(peliculasPersonalizada);
-        adaptador2.setUsuario(usuario,dao2,getActivity());
-        Log.e("asfaf",""+peliculasPersonalizada.size());
+
         //adaptador = new Adaptador( getPeliculas(dao,peliculaArrayList));
 
     }
@@ -77,6 +59,7 @@ public class listaPeliculasFragment extends Fragment {
             public void onClick(View view) {
                 Bundle envio = new Bundle();
                 envio.putSerializable("Pelicula",peliculaArrayList.get(recyclerView.getChildAdapterPosition(view)));
+                envio.putSerializable("usuario",usuario);
                  DetallePeliculaFragment detallePeliculaFragment = new DetallePeliculaFragment();
                 detallePeliculaFragment.setArguments(envio);
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,detallePeliculaFragment).commit();

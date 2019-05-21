@@ -33,6 +33,7 @@ public class PersonalizadaFragment extends Fragment {
             usuario = (Usuario) getArguments().getSerializable("usuario");
         }
         dao = new DAO();
+
         peliculaArrayList = new ArrayList<>();
         adaptador = new Adaptador();
         dao.getPeliculasPersonalizadas(dao,peliculaArrayList,adaptador,usuario);
@@ -55,6 +56,7 @@ public class PersonalizadaFragment extends Fragment {
             public void onClick(View view) {
                 Bundle envio = new Bundle();
                 envio.putSerializable("Pelicula",peliculaArrayList.get(recyclerView.getChildAdapterPosition(view)));
+                envio.putSerializable("usuario",usuario);
                 DetallePeliculaFragment detallePeliculaFragment = new DetallePeliculaFragment();
                 detallePeliculaFragment.setArguments(envio);
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,detallePeliculaFragment).commit();

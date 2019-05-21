@@ -19,7 +19,7 @@ import java.util.Date;
 import java.util.TimeZone;
 
 import DTO.Pelicula;
-import DTO.PuntajeGeneral;
+import DTO.CalificacionGeneral;
 import DTO.Usuario;
 
 public class DAO {
@@ -166,10 +166,8 @@ public class DAO {
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             Pelicula pelicula = dataSnapshot1.getValue(Pelicula.class);
 
-
                                     if(usuario.getIdPeliculas().contains(pelicula.getId())) {
                                         peliculaArrayList.add(pelicula);
-                                        Log.e("Aca",""+pelicula.getNombre());
                                     }
                             adaptador.notifyDataSetChanged();
 
@@ -193,11 +191,17 @@ public class DAO {
         return peliculaArrayList;
     }
 
-    public void setPuntaje(PuntajeGeneral puntaje) {
+    public void setPuntaje(CalificacionGeneral puntaje) {
         String key = databaseReference.child("Puntaje").child("posts").push().getKey();
         puntaje.setId(key);
         this.databaseReference.child("Puntaje").child(puntaje.getId()).setValue(puntaje);
     }
+    public void updatePuntaje(CalificacionGeneral calificacionGeneral, DAO dao) {
+        dao.getDatabaseReference().child("Puntaje").child(calificacionGeneral.getId()).setValue(calificacionGeneral);
+    }
+
+
+
 }
 
 

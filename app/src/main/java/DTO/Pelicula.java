@@ -9,7 +9,7 @@ public class Pelicula implements Serializable {
     private Integer puntuacion;
     private String id;
     private String fecha;
-    private PuntajeGeneral puntajeGeneral;
+    private CalificacionGeneral calificacionGeneral;
 
     public Pelicula() {
     }
@@ -22,17 +22,17 @@ public class Pelicula implements Serializable {
         this.fecha = fecha;
     }
 
-    public Pelicula(String nombre, String autor, String sinopsis, String fecha, PuntajeGeneral puntajeGeneral) {
+    public Pelicula(String nombre, String autor, String sinopsis, String fecha, CalificacionGeneral calificacionGeneral) {
         this.nombre = nombre;
         this.autor = autor;
         this.sinopsis = sinopsis;
         this.puntuacion = puntuacion;
         this.id = id;
         this.fecha = fecha;
-        puntajeGeneral.setPuntacionAutor(3);
-        puntajeGeneral.setPuntacionPelicula(3);
-        puntajeGeneral.setPuntuacionSinopsis(3);
-        this.puntajeGeneral = puntajeGeneral;
+        calificacionGeneral.setPuntacionAutor(3);
+        calificacionGeneral.setPuntacionPelicula(3);
+        calificacionGeneral.setPuntuacionSinopsis(3);
+        this.calificacionGeneral = calificacionGeneral;
     }
 
     public Pelicula(String nombre, String autor, String sinopsis, Integer puntuacion) {
@@ -82,11 +82,11 @@ public class Pelicula implements Serializable {
         this.sinopsis = sinopsis;
     }
 
-    public PuntajeGeneral getPuntuacion() {
-        return puntajeGeneral;
+    public CalificacionGeneral getPuntuacion() {
+        return calificacionGeneral;
     }
 
-    public void setPuntuacion(PuntajeGeneral puntajeGeneral) {
-        this.puntajeGeneral = puntajeGeneral;
+    public void setPuntuacion(CalificacionGeneral calificacionGeneral) {
+        this.calificacionGeneral = calificacionGeneral;
     }
 }

@@ -2,21 +2,30 @@ package DTO;
 
 import java.io.Serializable;
 
-public class PuntajeGeneral implements Serializable {
-    private Integer puntacionAutor;
-    private Integer puntuacionSinopsis;
-    private Integer puntacionPelicula;
+public class CalificacionGeneral implements Serializable {
+    private int puntacionAutor;
+    private int puntuacionSinopsis;
+    private int puntacionPelicula;
     private String id;
     private String idUsuario;
     private String idPelicula;
 
-    public PuntajeGeneral(int puntacionAutor, int puntuacionSinopsis, int puntacionPelicula) {
+    public CalificacionGeneral(int puntacionAutor, int puntuacionSinopsis, int puntacionPelicula, String id, String idUsuario, String idPelicula) {
+        this.puntacionAutor = puntacionAutor;
+        this.puntuacionSinopsis = puntuacionSinopsis;
+        this.puntacionPelicula = puntacionPelicula;
+        this.id = id;
+        this.idUsuario = idUsuario;
+        this.idPelicula = idPelicula;
+    }
+
+    public CalificacionGeneral(int puntacionAutor, int puntuacionSinopsis, int puntacionPelicula) {
         this.puntacionAutor = puntacionAutor;
         this.puntuacionSinopsis = puntuacionSinopsis;
         this.puntacionPelicula = puntacionPelicula;
     }
 
-    public PuntajeGeneral() {
+    public CalificacionGeneral() {
     }
 
     public String getId() {
@@ -43,27 +52,27 @@ public class PuntajeGeneral implements Serializable {
         this.idPelicula = idPelicula;
     }
 
-    public Integer getPuntacionAutor() {
+    public int getPuntacionAutor() {
         return puntacionAutor;
     }
 
-    public void setPuntacionAutor(Integer puntacionAutor) {
+    public void setPuntacionAutor(int puntacionAutor) {
         this.puntacionAutor = puntacionAutor;
     }
 
-    public Integer getPuntuacionSinopsis() {
+    public int getPuntuacionSinopsis() {
         return puntuacionSinopsis;
     }
 
-    public void setPuntuacionSinopsis(Integer puntuacionSinopsis) {
+    public void setPuntuacionSinopsis(int puntuacionSinopsis) {
         this.puntuacionSinopsis = puntuacionSinopsis;
     }
 
-    public Integer getPuntacionPelicula() {
+    public int getPuntacionPelicula() {
         return puntacionPelicula;
     }
 
-    public void setPuntacionPelicula(Integer puntacionPelicula) {
+    public void setPuntacionPelicula(int puntacionPelicula) {
         this.puntacionPelicula = puntacionPelicula;
     }
 }
