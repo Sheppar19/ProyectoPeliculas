@@ -10,22 +10,22 @@
         android:layout_height="match_parent"
         android:layout_marginTop="20px"
         android:orientation="vertical">
-
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10px"
-            android:text="Id" />
+            android:text="Fecha" />
 
-        <EditText
-            android:id="@+id/editId"
+        <TextView
+            android:id="@+id/editFecha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:enabled="true"
             android:layout_marginLeft="10px"
-            android:text=""/>
+            android:text="Click"/>
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="text"
             android:layout_marginLeft="10px"
             android:text=""/>
 
@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="text"
             android:text=""
             android:layout_marginLeft="10px"/>
 

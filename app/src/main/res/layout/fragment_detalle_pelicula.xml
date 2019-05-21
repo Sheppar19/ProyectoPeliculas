@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetallePeliculaFragment">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/DetalleTituloTxtView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Titulo"
+        android:gravity="center"
+        android:textAlignment="gravity"/>
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/descarga" />
+
+    <TextView
+        android:id="@+id/TxtView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Autor"
+        android:gravity="center"
+        android:textAlignment="gravity" />
+
+    <TextView
+        android:id="@+id/DetalleAutorTxtView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre del autor"
+        android:gravity="center"
+        android:textAlignment="gravity" />
+
+    <TextView
+        android:id="@+id/TxtView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sinopsis"
+        android:gravity="center"
+        android:textAlignment="gravity" />
+
+    <TextView
+        android:id="@+id/DetalleSinopsisTxtView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sinopsis de la pelicula"
+        android:gravity="center"
+        android:textAlignment="gravity"/>
+
+    <TextView
+        android:id="@+id/TxtView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calificacion"
+        android:gravity="center"
+        android:textAlignment="gravity" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="230px">
+        <CheckBox
+            android:id="@+id/Destrella1"
+            style="?android:attr/starStyle"
+            android:tag="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <CheckBox
+            android:id="@+id/Destrella2"
+            style="?android:attr/starStyle"
+            android:tag="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <CheckBox
+            android:id="@+id/Destrella3"
+            style="?android:attr/starStyle"
+            android:tag="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <CheckBox
+            android:id="@+id/Destrella4"
+            style="?android:attr/starStyle"
+            android:tag="4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <CheckBox
+            android:id="@+id/Destrella5"
+            style="?android:attr/starStyle"
+            android:tag="5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/TxtView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calificar Autor"
+        android:gravity="center"
+        android:textAlignment="gravity" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="230px">
+            <CheckBox
+                android:id="@+id/DCAestrella1"
+                style="?android:attr/starStyle"
+                android:tag="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <CheckBox
+                android:id="@+id/DCAestrella2"
+                style="?android:attr/starStyle"
+                android:tag="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <CheckBox
+                android:id="@+id/DCAestrella3"
+                style="?android:attr/starStyle"
+                android:tag="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <CheckBox
+                android:id="@+id/DCAestrella4"
+                style="?android:attr/starStyle"
+                android:tag="4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <CheckBox
+                android:id="@+id/DCAestrella5"
+                style="?android:attr/starStyle"
+                android:tag="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    <TextView
+        android:id="@+id/TxtView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calificar Sinopsis"
+        android:gravity="center"
+        android:textAlignment="gravity" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="230px">
+        <CheckBox
+            android:id="@+id/DCSestrella1"
+            style="?android:attr/starStyle"
+            android:tag="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <CheckBox
+            android:id="@+id/DCSestrella2"
+            style="?android:attr/starStyle"
+            android:tag="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <CheckBox
+            android:id="@+id/DCSestrella3"
+            style="?android:attr/starStyle"
+            android:tag="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <CheckBox
+            android:id="@+id/DCSestrella4"
+            style="?android:attr/starStyle"
+            android:tag="4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <CheckBox
+            android:id="@+id/DCSAestrella5"
+            style="?android:attr/starStyle"
+            android:tag="5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/TxtView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calificar Pelicula"
+        android:gravity="center"
+        android:textAlignment="gravity" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="230px">
+        <CheckBox
+            android:id="@+id/DCPestrella1"
+            style="?android:attr/starStyle"
+            android:tag="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <CheckBox
+            android:id="@+id/DCPestrella2"
+            style="?android:attr/starStyle"
+            android:tag="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <CheckBox
+            android:id="@+id/DCPestrella3"
+            style="?android:attr/starStyle"
+            android:tag="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <CheckBox
+            android:id="@+id/DCPestrella4"
+            style="?android:attr/starStyle"
+            android:tag="4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <CheckBox
+            android:id="@+id/DCPestrella5"
+            style="?android:attr/starStyle"
+            android:tag="5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+</LinearLayout>
+
+</RelativeLayout>

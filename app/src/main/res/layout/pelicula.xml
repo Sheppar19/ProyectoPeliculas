@@ -10,6 +10,13 @@
         android:layout_width="670px"
         android:layout_height="wrap_content"
         android:text="Nombre prelicula" />
+    <CheckBox
+        android:id="@+id/estrellaLista"
+        style="?android:attr/starStyle"
+        android:tag="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="750px"/>
 
     <LinearLayout
         android:id="@+id/linerLayoutP"

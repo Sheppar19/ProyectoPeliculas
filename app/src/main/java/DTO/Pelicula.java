@@ -1,21 +1,53 @@
 package DTO;
 
-public class Pelicula {
+import java.io.Serializable;
+
+public class Pelicula implements Serializable {
     private String nombre;
     private String autor;
     private String sinopsis;
     private Integer puntuacion;
     private String id;
+    private String fecha;
+    private PuntajeGeneral puntajeGeneral;
 
     public Pelicula() {
     }
 
-    public Pelicula(String nombre, String autor, String sinopsis, Integer puntuacion, String id) {
+    public Pelicula(String nombre, String autor, String sinopsis, Integer puntuacion, String fecha) {
+        this.nombre = nombre;
+        this.autor = autor;
+        this.sinopsis = sinopsis;
+        this.puntuacion = puntuacion;
+        this.fecha = fecha;
+    }
+
+    public Pelicula(String nombre, String autor, String sinopsis, String fecha, PuntajeGeneral puntajeGeneral) {
         this.nombre = nombre;
         this.autor = autor;
         this.sinopsis = sinopsis;
         this.puntuacion = puntuacion;
         this.id = id;
+        this.fecha = fecha;
+        puntajeGeneral.setPuntacionAutor(3);
+        puntajeGeneral.setPuntacionPelicula(3);
+        puntajeGeneral.setPuntuacionSinopsis(3);
+        this.puntajeGeneral = puntajeGeneral;
+    }
+
+    public Pelicula(String nombre, String autor, String sinopsis, Integer puntuacion) {
+        this.nombre = nombre;
+        this.autor = autor;
+        this.sinopsis = sinopsis;
+        this.puntuacion = puntuacion;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
     public String getId() {
@@ -50,11 +82,11 @@ public class Pelicula {
         this.sinopsis = sinopsis;
     }
 
-    public Integer getPuntuacion() {
-        return puntuacion;
+    public PuntajeGeneral getPuntuacion() {
+        return puntajeGeneral;
     }
 
-    public void setPuntuacion(Integer puntuacion) {
-        this.puntuacion = puntuacion;
+    public void setPuntuacion(PuntajeGeneral puntajeGeneral) {
+        this.puntajeGeneral = puntajeGeneral;
     }
 }
